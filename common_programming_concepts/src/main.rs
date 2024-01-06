@@ -81,10 +81,83 @@ fn array() {
     let d2 = d[2];
 }
 
+fn plus_one(n: i32) -> i32 {
+    n + 1
+}
+
+fn functions() {
+    let x = plus_one(5);
+    println!("The value of x is {x}")
+}
+
+fn if_expressions() {
+    // If
+    let number = 3;
+
+    if number < 3 {
+        println!("The number less then 3")
+    } else {
+        println!("The number greater then equal 3")
+    }
+
+    if number != 0 {
+        println!("number was something other than zero");
+    }
+
+    // Condition value
+    let condition = true;
+    let value = if condition { '3' } else { '4' };
+    println!("The condition value is {value}");
+
+    // Loop
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+
+    // Labeled loop
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+        count += 1;
+    }
+
+    // While
+    let mut number = 3;
+    while number != 0 {
+        println!("{number}!");
+        number -= 1;
+    }
+    println!("LIFTOFF!!!");
+
+    // For
+    let a = [10, 20, 30, 40, 50];
+    for element in a {
+        println!("the value is: {element}");
+    }
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
+}
+
 fn main() {
-    mutable();
-    constants();
-    shadowing();
-    data_types();
-    numaric_operations()
+    if_expressions()
 }
